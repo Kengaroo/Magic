@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+.contact_us h1{text-align:center}
+div.field{margin:20px}
+div.sub{margin:0 20px; width:500px; text-align:center}
+input#fldSubmit{color:#fff; background-color:#44aadd; width:50px; height:30px; line-height:17px}
+input#fldSubmit:hover{background-color:#3399cc;}
+.form label{position:inline-block; width:100px; font-size:14px; color:#3399cc; font-weight:900}
+form.form input.text, form.form textarea.text{border:solid 1px #44aadd; width:400px; color:#000}
+form.form input.text:focus, form.form textarea.text:focus{border: 2px solid #3399cc;}
+.requiredfld{color:#ff0000; font-size:20px;}

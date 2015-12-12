@@ -11,10 +11,28 @@
     			<class>Ainstainer_Contacts_Helper</class>
     		</сontacts>
     		<contacts>
-    			<rewrite>
+ 	  			<rewrite>
     				<data>Ainstainer_Contacts_Helper_Data</data>
-    			</rewrite>
+    			</rewrite> 
     		</contacts>
-    	</helpers>
+    	</helpers>    	 	
     </global>
+    <frontend>
+    		<routers>
+    			<contacts>
+    				<use>standard</use>
+    				<args>
+    					<module>Ainstainer_Contacts</module>
+    					<frontName>contacts</frontName>
+    				</args>
+    			</contacts>
+    		</routers>
+    		<layout>
+    			<updates>
+    				<contacts>
+    					<file>ainstainer/contacts.xml</file>
+    				</contacts>
+    			</updates>
+    		</layout>
+    </frontend>   
 </config>
