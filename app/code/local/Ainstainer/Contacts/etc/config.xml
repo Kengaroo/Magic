@@ -7,9 +7,9 @@
     </modules>
     <global>
     	<helpers>
-    		<сontacts>
+    		<tcontacts>
     			<class>Ainstainer_Contacts_Helper</class>
-    		</сontacts>
+    		</tcontacts>
     		<contacts>
  	  			<rewrite>
     				<data>Ainstainer_Contacts_Helper_Data</data>
@@ -19,19 +19,19 @@
     </global>
     <frontend>
     		<routers>
-    			<contacts>
+    			<tcontacts>
     				<use>standard</use>
     				<args>
     					<module>Ainstainer_Contacts</module>
-    					<frontName>contacts</frontName>
+    					<frontName>tcontacts</frontName>
     				</args>
-    			</contacts>
+    			</tcontacts>
     		</routers>
     		<layout>
     			<updates>
-    				<contacts>
-    					<file>ainstainer/contacts.xml</file>
-    				</contacts>
+    				<tcontacts>
+    					<file>ainstainer/tcontacts.xml</file>
+    				</tcontacts>
     			</updates>
     		</layout>
     </frontend>   
