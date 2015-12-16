@@ -7,14 +7,32 @@
     </modules>
     <global>
     	<helpers>
-    		<сontacts>
+    		<tcontacts>
     			<class>Ainstainer_Contacts_Helper</class>
-    		</сontacts>
+    		</tcontacts>
     		<contacts>
-    			<rewrite>
+ 	  			<rewrite>
     				<data>Ainstainer_Contacts_Helper_Data</data>
-    			</rewrite>
+    			</rewrite> 
     		</contacts>
-    	</helpers>
+    	</helpers>    	 	
     </global>
+    <frontend>
+    		<routers>
+    			<tcontacts>
+    				<use>standard</use>
+    				<args>
+    					<module>Ainstainer_Contacts</module>
+    					<frontName>tcontacts</frontName>
+    				</args>
+    			</tcontacts>
+    		</routers>
+    		<layout>
+    			<updates>
+    				<tcontacts>
+    					<file>ainstainer/tcontacts.xml</file>
+    				</tcontacts>
+    			</updates>
+    		</layout>
+    </frontend>   
 </config>
