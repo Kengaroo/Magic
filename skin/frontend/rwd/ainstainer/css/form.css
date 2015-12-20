@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
-
-.contact_us h1{text-align:center}
+div.map {width:50%; float:left;}
+div.contact_us {width:50%; float:right;}
+.contact_us h1{text-align:center;}
 div.field{margin:20px}
 div.sub{margin:0 20px; width:500px; text-align:center}
 input#fldSubmit{color:#fff; background-color:#44aadd; width:50px; height:30px; line-height:17px}

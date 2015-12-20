@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="0.1.0">
 	<tcontacts_index_index>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
 		<reference name="content">
 			<block type="core/template" name="tcontacts.view"  template="ainstainer/tcontacts.phtml"/>
+ 		 
 		</reference>
 		<reference name="head">
 			<action method="addItem"><type>skin_css</type><name>css/form.css</name></action>
