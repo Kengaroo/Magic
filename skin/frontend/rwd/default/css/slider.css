@@ -6,8 +6,8 @@ padding:0;
 list-style:none;
 }
 #slider li{
-width:550px;
-height:380px;
+width:836px;
+height:196px;
 overflow:hidden;
 }
 #prevBtn, #nextBtn{
@@ -19,7 +19,7 @@ left:-1px;
 top:496px;
 }
 #nextBtn{
-left:581px;
+left:867px;
 }
 #prevBtn a, #nextBtn a{
 display:block;
