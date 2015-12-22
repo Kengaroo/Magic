@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+#slider {}
+#slider ul, #slider li{
+margin:0;
+padding:0;
+list-style:none;
+}
+#slider li{
+width:836px;
+height:196px;
+overflow:hidden;
+}
+#prevBtn, #nextBtn{
+display:block;
+width:30px;
+height:77px;
+position:absolute;
+left:-1px;
+top:496px;
+}
+#nextBtn{
+left:867px;
+}
+#prevBtn a, #nextBtn a{
+display:block;
+width:30px;
+height:77px;
+background:url(http://magento.first.test/media/ainstainer/btn_prev.gif) no-repeat 0 0;
+}
+#nextBtn a{
+background:url(http://magento.first.test/media/ainstainer/btn_next.gif) no-repeat 0 0;
+}
