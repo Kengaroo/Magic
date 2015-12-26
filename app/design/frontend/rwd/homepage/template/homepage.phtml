@@ -1,0 +1,9 @@
+<div id="slider">
+	<ul>
+<?php
+		$slider = Mage::getModel('homepage/slider')->getCollection()->addFieldToFilter('status', array('eq'=>'1'))->setOrder('position', 'ASC');
+		foreach ($slider as $item) 
+			echo '<li><img src="' . Mage::getBaseUrl('media') . $item->getUrl() . '"></li>';
+?>
+	</ul>
+</div>
