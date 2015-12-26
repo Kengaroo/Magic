@@ -2,7 +2,41 @@
 <config>
     <modules>
     	<Ainstainer_Homepage>
-    		<version>0.0.1</version>
+    		<version>0.0.2</version>
     	</Ainstainer_Homepage>
     </modules>
+    <global>
+    	<models>
+    		<homepage>
+    			<class>Ainstainer_Homepage_Model</class>
+    			<resourceModel>homepage_resource</resourceModel>
+    		</homepage>
+    		<homepage_resource>
+    			<class>Ainstainer_Homepage_Model_Resource</class>
+    			<entities>
+    				<table_slider>
+    					<table>homepage_slider</table>
+    				</table_slider>
+    			</entities>
+    		</homepage_resource>
+    	</models>
+    	<resources>
+            <homepage_setup>
+                <setup>
+                    <module>Ainstainer_Homepage</module>
+                </setup>
+            </homepage_setup>
+        </resources>
+    </global>
+    <frontend>
+    		<routers>
+    			<homepage>
+    				<use>standard</use>
+    				<args>
+    					<module>Ainstainer_Homepage</module>
+    					<frontName>homepage</frontName>
+    				</args>
+    			</homepage>
+    		</routers>
+    </frontend>
 </config>
