@@ -10,12 +10,41 @@
     		<tcontacts>
     			<class>Ainstainer_Contacts_Helper</class>
     		</tcontacts>
-    		<contacts>
+    		<ainstainer_contacts>
  	  			<rewrite>
     				<data>Ainstainer_Contacts_Helper_Data</data>
     			</rewrite> 
+    		</ainstainer_contacts>
+    	</helpers>  
+    	<blocks>
+            <ainstainer_contacts>
+                <class>Ainstainer_Contacts_Block</class>
+            </ainstainer_contacts>
+        </blocks>
+    	<models>
+    		<contacts>
+    			<class>Ainstainer_Contacts_Model</class>
+    			<resourceModel>сontacts_resource</resourceModel>
     		</contacts>
-    	</helpers>    	 	
+    		<contacts_resource>
+    			<class>Ainstainer_Contacts_Model_Resource</class>
+    			<entities>
+    				<table_message>
+    					<table>contacts_messages</table>
+    				</table_message>
+    			</entities>
+    		</contacts_resource>
+    	</models>
+    	<resources>
+            <tcontacts_setup>
+                <setup>
+                    <module>Ainstainer_Contacts</module>
+                </setup>
+            </tcontacts_setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </resources> 	 	
     </global>
     <frontend>
     		<routers>
@@ -35,4 +64,15 @@
     			</updates>
     		</layout>
     </frontend>   
+    <admin>
+        <routers>
+            <madminhtml>
+            	<use>admin</use>
+                <args>
+                    <module>Ainstainer_Contacts_Adminhtml</module>
+                    <frontName>mcontacts</frontName>
+                </args>
+            </madminhtml>
+        </routers>
+    </admin>
 </config>
