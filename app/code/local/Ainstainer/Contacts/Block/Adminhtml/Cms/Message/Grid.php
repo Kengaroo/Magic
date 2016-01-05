@@ -13,28 +13,7 @@ class Ainstainter_Contacts_Block_Adminhtml_Cms_Message_Grid extends Mage_Adminht
 
 	protected function _prepareCollection()
 	{
-		$collection = Mage::getResourceModel('cms/message_collection')
-		->join(array('a' => 'cms/message_address'), 'main_table.entity_id = a.parent_id AND a.address_type != \'billing\'', array(
-				'city'       => 'city',
-				'country_id' => 'country_id'
-		))
-		->join(array('c' => 'customer/customer_group'), 'main_table.customer_group_id = c.customer_group_id', array(
-				'customer_group_code' => 'customer_group_code'
-		))
-		->addExpressionFieldToSelect(
-				'fullname',
-				'CONCAT({{customer_firstname}}, \' \', {{customer_lastname}})',
-				array('customer_firstname' => 'main_table.customer_firstname', 'customer_lastname' => 'main_table.customer_lastname'))
-				->addExpressionFieldToSelect(
-						'products',
-						'(SELECT GROUP_CONCAT(\' \', x.name)
-                    FROM sales_flat_order_item x
-                    WHERE {{entity_id}} = x.order_id
-                        AND x.product_type != \'configurable\')',
-						array('entity_id' => 'main_table.entity_id')
-				)
-				;
-
+		$collection = Mage::getResourceModel($this->_getCollectionClass());//('ainstainer_contacts_model/message_collection');
 		$this->setCollection($collection);
 		parent::_prepareCollection();
 		return $this;
@@ -42,69 +21,35 @@ class Ainstainter_Contacts_Block_Adminhtml_Cms_Message_Grid extends Mage_Adminht
 
 	protected function _prepareColumns()
 	{
-		$helper = Mage::helper('ainstainer_contactss');
-		$currency = (string) Mage::getStoreConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_BASE);
+		$helper = Mage::helper('ainstainer_contacts');
 
-		$this->addColumn('increment_id', array(
+		$this->addColumn('message_id', array(
 				'header' => $helper->__('Order #'),
-				'index'  => 'increment_id'
+				'index'  => 'message_id'
 		));
 
-		$this->addColumn('purchased_on', array(
-				'header' => $helper->__('Purchased On'),
-				'type'   => 'datetime',
-				'index'  => 'created_at'
+		$this->addColumn('name', array(
+				'header' => $helper->__('Name'),
+				'index'  => 'name'
 		));
 
-		$this->addColumn('products', array(
-				'header'       => $helper->__('Products Purchased'),
-				'index'        => 'products',
-				'filter_index' => '(SELECT GROUP_CONCAT(\' \', x.name) FROM sales_flat_order_item x WHERE main_table.entity_id = x.order_id AND x.product_type != \'configurable\')'
+		$this->addColumn('email', array(
+				'header'       => $helper->__('e-mail'),
+				'index'        => 'email'
 		));
 
-		$this->addColumn('fullname', array(
-				'header'       => $helper->__('Name'),
-				'index'        => 'fullname',
-				'filter_index' => 'CONCAT(customer_firstname, \' \', customer_lastname)'
+		$this->addColumn('phone', array(
+				'header'       => $helper->__('Phone'),
+				'index'        => 'phone',
 		));
 
-		$this->addColumn('city', array(
-				'header' => $helper->__('City'),
+		$this->addColumn('Description', array(
+				'header' => $helper->__('Message'),
 				'index'  => 'city'
 		));
 
-		$this->addColumn('country', array(
-				'header'   => $helper->__('Country'),
-				'index'    => 'country_id',
-				'renderer' => 'adminhtml/widget_grid_column_renderer_country'
-		));
-
-		$this->addColumn('customer_group', array(
-				'header' => $helper->__('Customer Group'),
-				'index'  => 'customer_group_code'
-		));
-
-		$this->addColumn('grand_total', array(
-				'header'        => $helper->__('Grand Total'),
-				'index'         => 'grand_total',
-				'type'          => 'currency',
-				'currency_code' => $currency
-		));
-
-		$this->addColumn('shipping_method', array(
-				'header' => $helper->__('Shipping Method'),
-				'index'  => 'shipping_description'
-		));
-
-		$this->addColumn('order_status', array(
-				'header'  => $helper->__('Status'),
-				'index'   => 'status',
-				'type'    => 'options',
-				'options' => Mage::getSingleton('cms/message_config')->getStatuses(),
-		));
-
-		$this->addExportType('*/*/exportInchooCsv', $helper->__('CSV'));
-		$this->addExportType('*/*/exportInchooExcel', $helper->__('Excel XML'));
+		$this->addExportType('*/*/exportAinstainerCsv', $helper->__('CSV'));
+		$this->addExportType('*/*/exportAinstainerExcel', $helper->__('Excel XML'));
 
 		return parent::_prepareColumns();
 	}
