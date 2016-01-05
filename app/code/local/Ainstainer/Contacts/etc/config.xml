@@ -6,16 +6,45 @@
     	</Ainstainer_Contacts>
     </modules>
     <global>
+    	<resources>
+            <ainstainer_contacts_setup>
+                <setup>
+                    <module>Ainstainer_Contacts</module>
+                </setup>
+            </ainstainer_contacts_setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </resources> 
     	<helpers>
     		<tcontacts>
     			<class>Ainstainer_Contacts_Helper</class>
     		</tcontacts>
-    		<contacts>
+    		<ainstainer_contacts>
  	  			<rewrite>
     				<data>Ainstainer_Contacts_Helper_Data</data>
     			</rewrite> 
-    		</contacts>
-    	</helpers>    	 	
+    		</ainstainer_contacts>
+    	</helpers>  
+    	<blocks>
+            <ainstainer_contacts>
+                <class>Ainstainer_Contacts_Block</class>
+            </ainstainer_contacts>
+        </blocks>
+    	<models>
+    		<ainstainer_contacts>
+    			<class>Ainstainer_Contacts_Model</class>
+    			<resourceModel>ainstainer_contacts_resource</resourceModel>
+    		</ainstainer_contacts>
+    		<ainstainer_contacts_resource>
+    			<class>Ainstainer_Contacts_Model_Resource</class>
+    			<entities>
+    				<table_message>
+    					<table>contacts_messages</table>
+    				</table_message>
+    			</entities>
+    		</ainstainer_contacts_resource>
+    	</models> 	
     </global>
     <frontend>
     		<routers>
@@ -35,4 +64,15 @@
     			</updates>
     		</layout>
     </frontend>   
+    <admin>
+        <routers>
+            <madminhtml>
+            	<use>admin</use>
+                <args>
+                    <module>Ainstainer_Contacts</module> <!-- _Adminhtml -->
+                    <frontName>mcontacts</frontName>
+                </args>
+            </madminhtml>
+        </routers>
+    </admin>
 </config>
