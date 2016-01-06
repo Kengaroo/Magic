@@ -13,4 +13,17 @@
 			<action method="setTitle"><title>My contact form</title></action>
 		</reference>
 	</tcontacts_index_index>
+	<tcontacts_index_save>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+		<reference name="content">
+			<block type="core/template" name="comment.sent"  template="ainstainer/messagesend.phtml"/>		
+			<block type="core/template" name="tcontacts.view"  template="ainstainer/tcontacts.phtml"/>		 
+		</reference>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>css/form.css</name></action>
+			<action method="setTitle"><title>My contact form</title></action>
+		</reference>
+	</tcontacts_index_save>
 </layout>

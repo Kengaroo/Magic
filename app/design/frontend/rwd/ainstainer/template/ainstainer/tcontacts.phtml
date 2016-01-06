@@ -5,7 +5,7 @@
 </div>
 <div class="contact_us">
 	<h1>CONTACT US</h1>
-	<form action="" method="post" id="" class="form">
+	<form action="<?php echo Mage::getBaseUrl() ?>tcontacts/index/save" method="post" id="" class="form">
 		<div class="field">
 			<label for="fldName" >Name<span class="requiredfld">*</span></label>
 			<input type="text" id="fldName" name="name" class="text">
@@ -23,7 +23,7 @@
 			<textarea type="text" class="text" id="fldDescription" name="description" cols="20" rows="10" placeholder="Put you message down here"></textarea>
 		</div>	
 		<div class="sub">
-			<input type="submit" id="fldSubmit" name="submit" value="SEND">
+			<input type="submit" id="fldSubmit" name="submit" value="SEND"><!-- <?php echo Mage_Core_Model_Url::getRouteUrl('tcontacts/index/save') ?> -->
 		</div>		
 	</form>
 </div>
