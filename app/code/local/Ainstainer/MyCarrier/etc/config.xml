@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+    	<Ainstainer_MyCarrier>
+    		<version>0.0.1</version>
+    	</Ainstainer_MyCarrier>
+    </modules>
+    <global>
+        <models>
+            <ainstainer_mycarrier>
+                <class>Ainstainer_MyCarrier_Model</class>
+            </ainstainer_mycarrier>
+        </models>
+    </global>
+    <!-- Default configuration -->
+    <default>
+        <carriers>
+            <ainstainer_mycarrier>
+                <active>1</active>
+                <model>ainstainer_mycarrier/carrier</model>
+                <title>Ainstainer Carrier</title>
+                <sort_order>0</sort_order>
+                <sallowspecific>0</sallowspecific>
+            </ainstainer_mycarrier>
+        </carriers>
+    </default>
+</config>
